@@ -97,7 +97,3 @@ function formatDate(timestamp) {
   return date.toLocaleString('es-ES', { timeZone: 'America/Mexico_City' });
 
 }
-
-        
-
-       
