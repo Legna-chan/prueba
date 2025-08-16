@@ -1,6 +1,6 @@
 module.exports = {
 
-  name: 'tt',
+  name: 'tiktok',
 
   description: 'Descarga un video de TikTok desde un enlace',
 
