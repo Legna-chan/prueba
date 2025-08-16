@@ -24,7 +24,7 @@ module.exports = {
 
 ✐ **Comandos de descargas**
 
-❀ !tt • !tiktok ➩ descarga videos de tiktok. 
+❀ !tiktok ➩ descarga videos de tiktok. 
 
 > Editado y desarrollado por @LegnaAm.
 
