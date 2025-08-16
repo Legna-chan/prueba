@@ -3,7 +3,7 @@ module.exports = {
   description: 'Muestra el menú del bot con personaje',
   execute(message, args) {
     const personaje = {
-      nombre: 'Nino Nakano',
+      nombre: 'Koniki No Yami',
       foto: 'https://i.imgur.com/ejemplo.png'
     };
 
