@@ -1,7 +1,7 @@
 {
-  "name": "Nakano",
+  "name": "Konjiki No Yami",
   "version": "1.0.0",
-  "description": "Bot de Discord inspirado en Nino Nakano",
+  "description": "Bot básico de discord",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
