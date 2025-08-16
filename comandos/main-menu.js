@@ -26,7 +26,7 @@ module.exports = {
 
 ❀ !tt • !tiktok ➩ descarga videos de tiktok. 
 
-> Escribe el comando tal como aparece para ejecutarlo.
+> Editado y desarrollado por @LegnaAm.
 
 `;
 
