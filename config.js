@@ -1,5 +1,5 @@
 module.exports = {
   token: '',
   prefix: '!',
-  ownerID: ''
+  ownerID: '883467973782814791'
 };
