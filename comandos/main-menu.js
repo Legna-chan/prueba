@@ -4,7 +4,7 @@ module.exports = {
   execute(message, args) {
     const personaje = {
       nombre: 'Nino Nakano',
-      foto: 'https://i.imgur.com/ejemplo.png' // Reemplaza con la URL de la imagen
+      foto: 'https://i.imgur.com/ejemplo.png'
     };
 
     const menu = `
