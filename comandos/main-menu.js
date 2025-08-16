@@ -11,7 +11,7 @@ module.exports = {
 👋 Hola, bienvenid@ a mi menú! Soy **${personaje.nombre}** 💖
 
 📜 **Menú de Comandos**
-2️⃣ **!hola** - Saluda al usuario
+. no hay disponibles por el momento
 
 Escribe el comando tal como aparece para ejecutarlo.
 `;
