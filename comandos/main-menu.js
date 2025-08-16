@@ -18,9 +18,13 @@ module.exports = {
 
 🌸 Hola, bienvenid@ a mi menú! Soy **${personaje.nombre}** 💫
 
-✐ **Menú de Comandos**
+✐ **Comandos generales de la bot**
 
-❀ !tiktok ➩ descarga videos de tiktok. 
+❀ !menu ➩ muestra el menu de la bot. 
+
+✐ **Comandos de descargas**
+
+❀ !tt • !tiktok ➩ descarga videos de tiktok. 
 
 > Escribe el comando tal como aparece para ejecutarlo.
 
