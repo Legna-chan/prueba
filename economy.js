@@ -1,18 +1,15 @@
 const fs = require("fs");
 const file = "./economy.json";
 
-// Leer o crear archivo
 function load() {
   if (!fs.existsSync(file)) fs.writeFileSync(file, "{}");
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-// Guardar datos
 function save(data) {
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
 }
 
-// Obtener balance
 function getBalance(id) {
   const data = load();
   if (!data[id]) data[id] = { balance: 0, daily: 0 };
@@ -20,7 +17,6 @@ function getBalance(id) {
   return data[id].balance;
 }
 
-// Reclamar daily
 function claimDaily(id) {
   const data = load();
   if (!data[id]) data[id] = { balance: 0, daily: 0 };
