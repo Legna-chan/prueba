@@ -11,7 +11,7 @@ module.exports = {
 
       return message.channel.send(
 
-        `❀ Por favor, envía un enlace de tiktok junto con el comando.\n> Ejemplo: \`#tt <link>\``
+        `🌸 Por favor, envía un enlace de tiktok junto con el comando.\n> Ejemplo: \`#tt <link>\``
 
       );
 
