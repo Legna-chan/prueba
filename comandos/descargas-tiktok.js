@@ -10,7 +10,7 @@ module.exports = {
     }
 
     try {
-      await message.channel.send('⏳ Espera un momento, obteniendo el video...');
+      await message.channel.send('⏰ Espera un momento, obteniendo el video...');
 
       const tiktokData = await tiktokdl(args[0]);
       const result = tiktokData?.data;
