@@ -14,9 +14,9 @@ module.exports = {
     const id = message.author.id;
     if (!data[id]) data[id] = { balance: 0 };
 
-    const peces = Math.floor(Math.random() * 15) + 1; // 1 a 15 peces
+    const peces = Math.floor(Math.random() * 15) + 1;
 
-    const monedas = peces * (Math.floor(Math.random() * 5) + 1); // cada pez vale 1-5 monedas
+    const monedas = peces * (Math.floor(Math.random() * 5) + 1);
 
     data[id].balance += monedas;
 
