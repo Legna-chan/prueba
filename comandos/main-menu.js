@@ -24,7 +24,7 @@ module.exports = {
 🎐 !happy → Expresa felicidad. 
       `)
       .setImage('https://files.catbox.moe/aep1ra.jpg')
-      .setFooter({ text: 'Editado y desarrollado por @LegnaAm' });
+      .setFooter({ text: 'Editada y desarrollada por @LegnaAm' });
 
     message.reply({ embeds: [menuEmbed] });
   }
