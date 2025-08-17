@@ -28,7 +28,7 @@ function claimDaily(id) {
     return { success: false, wait: Math.ceil((cooldown - (now - data[id].daily)) / 60000) };
   }
 
-  const reward = Math.floor(Math.random() * 800) + 200; // random entre 200-1000
+  const reward = Math.floor(Math.random() * 800) + 200;
   data[id].balance += reward;
   data[id].daily = now;
   save(data);
