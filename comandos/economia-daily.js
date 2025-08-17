@@ -16,7 +16,7 @@ module.exports = {
 
     } else {
 
-      message.reply(`✅ Reclamaste ${result.reward} monedas hoy. ¡Disfrútalas!`);
+      message.reply(`🌸 Reclamaste ${result.reward} monedas hoy. ¡Disfrútalas!`);
 
     }
 
