@@ -1,3 +1,5 @@
+const { EmbedBuilder } = require('discord.js');
+
 module.exports = {
 
   name: 'menu',
@@ -6,36 +8,37 @@ module.exports = {
 
   execute(message, args) {
 
-    const personaje = {
+    const menuEmbed = new EmbedBuilder()
 
-      nombre: 'Konjiki No Yami',
+      .setColor('#FF69B4')
 
-      foto: 'https://files.catbox.moe/aep1ra.jpg'
+      .setTitle('🌸 Menú de la bot')
 
-    };
+      .setDescription(`
 
-    const menu = `
-
-🌸 Hola, bienvenid@ a mi menú! Soy **${personaje.nombre}** 💫
+Hola, bienvenid@ a mi menú! Soy **Konjiki No Yami** 💫
 
 ✐ **Comandos generales de la bot**
 
-❀ !menu ➩ muestra el menu de la bot. 
+❀ !menu ➩ muestra el menú de la bot.
 
 ✐ **Comandos de descargas**
 
-❀ !tiktok ➩ descarga videos de tiktok. 
+❀ !tiktok ➩ descarga videos de tiktok.
 
 ✐ **Comandos de Economía**
 
 ❀ !daily ➩ reclama tu recompensa diaria.
 
-❀ !balance ➩ muestra tu dinero actual. 
+❀ !balance ➩ muestra tu dinero actual.
 
-> Editado y desarrollado por @LegnaAm.
-`;
+> Editado y desarrollado por @LegnaAm
 
-    message.reply({ content: menu, files: [personaje.foto] });
+      `)
+
+      .setImage('https://files.catbox.moe/aep1ra.jpg'); // Imagen del personaje
+
+    message.reply({ embeds: [menuEmbed] });
 
   }
 
