@@ -26,7 +26,13 @@ module.exports = {
 
 ❀ !tiktok ➩ descarga videos de tiktok. 
 
-> Editado y desarrollado por @LegnaAm.
+✐ **Comandos de Economía**
+
+❀ !daily ➩ reclama tu recompensa diaria.
+
+❀ !balance ➩ 
+
+
 
 `;
 
