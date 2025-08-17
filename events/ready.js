@@ -1,7 +1,9 @@
+const chalk = require('chalk');
+
 module.exports = {
   name: 'ready',
   once: true,
   execute(client) {
-    console.log(`🌸 Bot conectada como ${client.user.tag}`);
+    console.log(chalk.yellow(`🍭  Bot conectada como ${client.user.tag}`));
   }
 };
