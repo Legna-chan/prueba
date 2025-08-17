@@ -1,49 +1,31 @@
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-
   name: 'menu',
-
   description: 'Muestra el menú de la bot',
-
   execute(message, args) {
-
     const menuEmbed = new EmbedBuilder()
-
-      .setColor('#FF69B4')
-
-      .setTitle('🌸 Menú de la bot')
-
+      .setColor('#FF4500')
+      .setTitle('🌈 🎐 ｡ﾟﾟ･ Menú oficial de la bot ･ﾟﾟ｡ 🎐 🌈')
       .setDescription(`
+🌸 ¡Bienvenid@ a **Konjiki No Yami**! 🌸
 
-Hola, bienvenid@ a mi menú! Soy **Konjiki No Yami** 💫
+🎆 **General**
+🎐 !menu → Muestra este menú.
 
-✐ **Comandos generales de la bot**
+🎆 **Descargas**
+🎐 !tiktok → Descarga videos de tiktok.
 
-❀ !menu ➩ muestra el menú de la bot.
+🎆 **Economía**
+🎐 !daily → Recompensa diaria.
+🎐 !balance → Ver tu dinero actual.
 
-✐ **Comandos de descargas**
-
-❀ !tiktok ➩ descarga videos de tiktok.
-
-✐ **Comandos de Economía**
-
-❀ !daily ➩ reclama tu recompensa diaria.
-
-❀ !balance ➩ muestra tu dinero actual.
-
-✐ **Comandos de reacción anime**
-
-❀ !happy ➩ Expresa felicidad con un gif. 
-
-> Editado y desarrollado por @LegnaAm
-
+🎆 **Reacciones Anime**
+🎐 !happy → Expresa felicidad. 
       `)
-
-      .setImage('https://files.catbox.moe/aep1ra.jpg');
+      .setImage('https://files.catbox.moe/aep1ra.jpg')
+      .setFooter({ text: 'Editado y desarrollado por @LegnaAm' });
 
     message.reply({ embeds: [menuEmbed] });
-
   }
-
 };
