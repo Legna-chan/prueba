@@ -36,7 +36,7 @@ Hola, bienvenid@ a mi menú! Soy **Konjiki No Yami** 💫
 
       `)
 
-      .setImage('https://files.catbox.moe/aep1ra.jpg'); // Imagen del personaje
+      .setImage('https://files.catbox.moe/aep1ra.jpg');
 
     message.reply({ embeds: [menuEmbed] });
 
