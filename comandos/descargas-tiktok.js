@@ -1,11 +1,11 @@
 module.exports = {
   name: 'tiktok',
-  description: 'Descarga un video de TikTok desde un enlace',
+  description: 'Descarga un video de tiktok con un enlace',
   
   async execute(message, args) {
     if (!args[0]) {
       return message.channel.send(
-        `🌸 Por favor, envía un enlace de TikTok junto con el comando.\n> Ejemplo: \`#tt <link>\``
+        `🌸 Por favor, envía un enlace de tiktok junto con el comando.\n> Ejemplo: \`!tiktok <link>\``
       );
     }
 
