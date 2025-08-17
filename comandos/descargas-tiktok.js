@@ -19,7 +19,6 @@ module.exports = {
         return message.channel.send('❌ Error: No se pudo obtener el video.');
       }
 
-      // Enviar solo el video
       await message.channel.send({
         files: [{ attachment: result.play, name: 'tiktok.mp4' }]
       });
