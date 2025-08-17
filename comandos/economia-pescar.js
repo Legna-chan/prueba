@@ -22,7 +22,7 @@ module.exports = {
 
     fs.writeFileSync(file, JSON.stringify(data, null, 2));
     message.reply(
-      `🎣 ¡Felicidades! ${message.author.username} pescaste ${peces} peces y ganaste ${monedas} monedas.\n💰 Ahora tienes ${data[id].balance} monedas.`
+      `🌸 ¡Felicidades! ${message.author.username} pescaste ${peces} peces y ganaste ${monedas} monedas.\n💰 Ahora tienes ${data[id].balance} monedas.`
     );
   },
 };
