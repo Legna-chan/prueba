@@ -30,10 +30,9 @@ module.exports = {
 
 ❀ !daily ➩ reclama tu recompensa diaria.
 
-❀ !balance ➩ 
+❀ !balance ➩ muestra tu dinero actual. 
 
-
-
+> Editado y desarrollado por @LegnaAm.
 `;
 
     message.reply({ content: menu, files: [personaje.foto] });
