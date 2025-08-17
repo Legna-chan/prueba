@@ -62,8 +62,6 @@ module.exports = (client) => {
       console.log(chalk.red(`| Comando: ${commandName}`));
       console.log(chalk.red(`| Error: ${err.message}`));
       console.log(chalk.red("─────────────────────────────"));
-
-      message.reply("❌ Ocurrió un error ejecutando este comando. Comunicaselo a mi creador: legnaofc.");
     }
   });
 };
