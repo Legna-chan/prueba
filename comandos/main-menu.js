@@ -5,8 +5,8 @@ module.exports = {
   description: 'Muestra el menú de la bot',
   execute(message, args) {
     const menuEmbed = new EmbedBuilder()
-      .setColor('#FF4500')
-      .setTitle('🌈 🎐 ｡ﾟﾟ･ Menú oficial de la bot ･ﾟﾟ｡ 🎐 🌈')
+      .setColor('#FF69B4')
+      .setTitle('🌈 ｡ﾟﾟ･ Menú oficial de la bot ･ﾟﾟ｡ 🌈')
       .setDescription(`
 🌸 ¡Bienvenid@ a **Konjiki No Yami**! 🌸
 
