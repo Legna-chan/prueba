@@ -32,6 +32,10 @@ Hola, bienvenid@ a mi menú! Soy **Konjiki No Yami** 💫
 
 ❀ !balance ➩ muestra tu dinero actual.
 
+✐ **Comandos de reacción anime**
+
+❀ !happy ➩ Expresa felicidad con un gif. 
+
 > Editado y desarrollado por @LegnaAm
 
       `)
