@@ -12,7 +12,7 @@ module.exports = {
 
     const balance = getBalance(userId);
 
-    message.reply(`💰 Tu saldo actual es: ${balance} monedas.`);
+    message.reply(`🍭 Tu saldo actual es: ${balance} monedas.`);
 
   }
 
