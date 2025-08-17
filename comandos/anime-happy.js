@@ -4,11 +4,10 @@ module.exports = {
 
   async execute(message, args) {
     try {
-
       const target = message.mentions.users.first();
 
       const gifs = [
-       "https://files.catbox.moe/8cqruf.gif",
+        "https://files.catbox.moe/8cqruf.gif",
         "https://files.catbox.moe/sk4gaq.gif",
         "https://files.catbox.moe/fiu1lx.gif",
         "https://files.catbox.moe/87ir3k.gif"
@@ -19,11 +18,9 @@ module.exports = {
       let content;
 
       if (target) {
-
-        content = `${target.toString()} 🌸 está feliz por ${message.author.toString()}!`;
+        content = `🌸 ${message.author.toString()} está feliz por ${target.toString()}!`;
       } else {
-
-        content = `${message.author.toString()} 🌸 está feliz hoy!`;
+        content = `🌸 ${message.author.toString()} está feliz hoy!`;
       }
 
       await message.channel.send({
