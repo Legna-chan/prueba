@@ -34,6 +34,6 @@ module.exports = {
 
     save(data);
 
-    message.reply(`🌸 Reclamaste ${reward} monedas hoy. > Puedes ver cuantas yamiCoins tienes con !balance`);
+    message.reply(`🌸 Reclamaste ${reward} monedas hoy.`);
   },
 };
