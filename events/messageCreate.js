@@ -32,7 +32,7 @@ module.exports = {
         } else if (type.includes('video')) {
           console.log(chalk.cyan(`[VIDEO] ${message.author.tag} envió un video`));
         } else {
-          console.log(chalk.red(`[ARCHIVO] ${message.author.tag} envió un archivo`));
+          console.log(chalk.white(`[ARCHIVO] ${message.author.tag} envió un archivo`));
         }
       });
     }
