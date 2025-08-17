@@ -9,9 +9,9 @@ module.exports = {
 
       const gifs = [
        "https://files.catbox.moe/8cqruf.gif",
-        "",
-        "",
-        ""
+        "https://files.catbox.moe/sk4gaq.gif",
+        "https://files.catbox.moe/fiu1lx.gif",
+        "https://files.catbox.moe/87ir3k.gif"
       ];
 
       const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
