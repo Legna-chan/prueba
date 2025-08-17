@@ -19,9 +19,10 @@ module.exports = {
 🎆 **Economía**
 🎐 !daily → Recompensa diaria.
 🎐 !balance → Ver tu dinero actual.
+🎐 !pescar → Gana monedas pescando.
 
 🎆 **Reacciones Anime**
-🎐 !happy → Expresa felicidad. 
+🎐 !happy → Expresa felicidad con un gif de anime. 
       `)
       .setImage('https://files.catbox.moe/aep1ra.jpg')
       .setFooter({ text: 'Editada y desarrollada por @LegnaAm' });
