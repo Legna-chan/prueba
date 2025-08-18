@@ -11,7 +11,7 @@ return message.reply('❌ Solo el creador puede usar este comando.');
 
 message.reply('🌸 Actualizando la bot...');  
 
-const update = exec('git reset --hard && git clean -f && git pull');  
+const update = exec('git fetch origin main && git reset --hard origin/main');  
 
 let output = '';  
 
