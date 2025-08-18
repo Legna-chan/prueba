@@ -22,7 +22,11 @@ module.exports = {
 🎐 !pescar → Gana monedas pescando.
 
 🎆 **Reacciones Anime**
-🎐 !happy → Expresa felicidad con un gif de anime. 
+🎐 !happy → Expresa felicidad con un gif de anime.
+
+🎆 **Comandos para el creador**
+🎐 !update → Actualiza a la bot.
+🎐 !exec →
       `)
       .setImage('https://files.catbox.moe/aep1ra.jpg')
       .setFooter({ text: 'Editada y desarrollada por @LegnaAm' });
