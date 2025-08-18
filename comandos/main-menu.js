@@ -23,6 +23,9 @@ module.exports = {
 
 🎆 **Reacciones Anime**
 🎐 !happy → Expresa felicidad con un gif de anime.
+
+🎆 **Entretenimiento*
+🎐 !meme → Manda un meme aleatorio.
       `)
       .setImage('https://files.catbox.moe/aep1ra.jpg')
       .setFooter({ text: 'Editada y desarrollada por @LegnaAm' });
