@@ -24,7 +24,7 @@ update.stderr.on('data', data => process.stderr.write(data));
 
 update.on('close', code => {  
   if (output.includes('Already up to date.') || output.includes('Already up-to-date.')) {  
-    message.reply('🌸 La bot ya está actualizada!');  
+    message.reply('🌸  La bot ya está actualizada!');  
   } else {  
     message.reply('🌺 Actualización realizada con éxito. Revisa la consola para detalles.');  
   }  
