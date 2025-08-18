@@ -3,10 +3,10 @@ const { ownerID } = require('../config.js');
 
 module.exports = {
   name: 'update',
-  description: 'Actualiza el bot desde GitHub',
+  description: 'Actualiza el bot a su última versión desde github',
   execute(message, args) {
     if (message.author.id !== ownerID) {
-      return message.reply('❌ Solo el owner puede usar este comando.');
+      return message.reply('❌ Solo el creador puede usar este comando.');
     }
 
     message.reply('🌸 Actualizando la bot...');
