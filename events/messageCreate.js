@@ -28,7 +28,11 @@ module.exports = {
       message.attachments.forEach(att => {
         const type = att.contentType || '';
         if (type.includes('image')) {
-          console.log(chalk.pink(`[IMAGEN] ${message.author.tag} envió una foto`));
+          if (type.includes('gif')) {
+            console.log(chalk.cyan(`[GIF] ${message.author.tag} envió un GIF`));
+          } else {
+            console.log(chalk.pink(`[IMAGEN] ${message.author.tag} envió una foto`));
+          }
         } else if (type.includes('video')) {
           console.log(chalk.cyan(`[VIDEO] ${message.author.tag} envió un video`));
         } else {
