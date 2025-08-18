@@ -3,7 +3,7 @@ const { ownerID } = require('../config.js');
 
 module.exports = {
   name: 'update',
-  description: 'Actualiza el bot a su última versión desde github',
+  description: 'Actualiza el bot a su última versión desde GitHub',
   execute(message, args) {
     if (message.author.id !== ownerID) {
       return message.reply('❌ Solo el creador puede usar este comando.');
@@ -11,20 +11,23 @@ module.exports = {
 
     message.reply('🌸 Actualizando la bot...');
 
-    const comando = 'git pull';
+    const update = exec('git reset --hard && git clean -f && git pull');
 
-    exec(comando, (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        return message.reply(`❌ Error: No se pudo realizar la actualización.\nRazón: ${err.message}`);
-      }
+    let output = '';
 
-      if (stderr) console.warn('Advertencia durante la actualización:', stderr);
+    update.stdout.on('data', data => {
+      output += data;
+      process.stdout.write(data); // Muestra todo en consola
+    });
 
-      if (stdout.includes('En este momento todo está actualizado.')) {
-        message.reply('🌸 La bot ya está actualizada.');
+    update.stderr.on('data', data => process.stderr.write(data));
+
+    update.on('close', code => {
+      // Detecta si la bot ya estaba actualizada
+      if (output.includes('Already up to date.') || output.includes('Already up-to-date.')) {
+        message.reply('🌸 La bot ya está actualizada!');
       } else {
-        message.reply(`🌺 Actualización realizada con éxito.\n\n${stdout}`);
+        message.reply('🌺 Actualización realizada con éxito. Revisa la consola para detalles.');
       }
     });
   },
