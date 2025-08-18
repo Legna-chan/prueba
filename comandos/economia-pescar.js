@@ -5,7 +5,7 @@ const cooldowns = {};
 
 module.exports = {
   name: "pescar",
-  description: "Pesca peces y gana monedas (cada 10 min)",
+  description: "Pesca peces y gana monedas",
   execute(message) {
     let data;
     if (!fs.existsSync(file)) {
