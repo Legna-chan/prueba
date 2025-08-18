@@ -11,7 +11,7 @@ module.exports = {
 
     message.reply('🌸 Actualizando la bot...');
 
-    const comando = 'find . -type f | xargs git update-index --assume-unchanged && git pull';
+    const comando = 'git pull';
 
     exec(comando, (err, stdout, stderr) => {
       if (err) {
