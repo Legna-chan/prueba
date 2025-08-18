@@ -3,7 +3,7 @@ const { ownerID } = require('../config.js');
 
 module.exports = {
   name: 'exec',
-  description: 'Ejecuta comandos del sistema (solo owner)',
+  description: 'Ejecuta comandos del sistema',
   execute(message, args) {
     if (message.author.id !== ownerID) 
       return message.reply('❌ Solo el creador puede usar este comando.');
@@ -18,9 +18,8 @@ module.exports = {
 
       if (err) response += `❌ Error:\n${err}\n`;
       if (stderr) response += `⚠️ Stderr:\n${stderr}\n`;
-      if (stdout) response += `✅ Output:\n${stdout}`;
+      if (stdout) response += `🌷 Resultado:\n${stdout}`;
 
-      // Discord tiene límite de 2000 caracteres por mensaje
       if (response.length > 2000) {
         response = response.slice(0, 1990) + '\n...Output truncado';
       }
