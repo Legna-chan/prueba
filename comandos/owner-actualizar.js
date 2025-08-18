@@ -20,13 +20,17 @@ module.exports = {
       process.stdout.write(data); // Muestra todo en consola
     });
 
-    update.stderr.on('data', data => process.stderr.write(data));
+    update.stderr.on('data', data => {
+      process.stderr.write(data);
+    });
 
     update.on('close', code => {
       // Detecta si la bot ya estaba actualizada
       if (output.includes('Already up to date.') || output.includes('Already up-to-date.')) {
+        console.log('🌸 La bot ya está actualizada.');
         message.reply('🌸 La bot ya está actualizada!');
       } else {
+        console.log(output); // Solo mostrar output real de cambios
         message.reply('🌺 Actualización realizada con éxito. Revisa la consola para detalles.');
       }
     });
