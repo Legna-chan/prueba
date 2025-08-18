@@ -33,7 +33,7 @@ module.exports = {
 
     let monedas = 0;
     for (let i = 0; i < peces; i++) {
-      monedas += Math.floor(Math.random() * 51) + 150; // entre 150 y 200 por pez
+      monedas += Math.floor(Math.random() * 51) + 150; 
     }
 
     data[id].balance += monedas;
