@@ -29,8 +29,7 @@ module.exports = {
 
     if (message.stickers.size > 0) {
       message.stickers.forEach(sticker => {
-        if (sticker.format === 2) { // Sticker animado (GIF)
-          console.log(chalk.cyan(`[GIF-STICKER] ${message.author.tag} envió un sticker animado`));
+        if (sticker.format === 2) {  console.log(chalk.cyan(`[GIF-STICKER] ${message.author.tag} envió un sticker animado`));
         } else {
           console.log(chalk.magenta(`[STICKER] ${message.author.tag} envió un sticker`));
         }
