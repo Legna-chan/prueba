@@ -1,4 +1,4 @@
 module.exports = {
-  prefix: '!',
+  prefix: '#',
   ownerID: '883467973782814791'
 };
