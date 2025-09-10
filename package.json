@@ -1,7 +1,7 @@
 {
   "name": "Konjiki No Yami",
   "version": "1.0.0",
-  "description": "Bot básico de discord",
+  "description": "Bot muy basico de discord",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
