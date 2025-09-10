@@ -6,7 +6,7 @@ module.exports = {
 
     if (message.author.bot) return;
 
-    if (message.content && message.content.startsWith('!')) {
+    if (message.content && message.content.startsWith('#')) {
       const args = message.content.slice(1).split(/ +/);
       const commandName = args.shift().toLowerCase();
       const command = client.commands.get(commandName);
@@ -29,9 +29,7 @@ module.exports = {
 
     if (message.stickers.size > 0) {
       message.stickers.forEach(sticker => {
-        if (sticker.format === 2) { // Sticker animado (GIF)
-          console.log(chalk.cyan(`[GIF-STICKER] ${message.author.tag} envió un sticker animado`));
-        } else {
+        if (sticker.format === 2) { 
           console.log(chalk.magenta(`[STICKER] ${message.author.tag} envió un sticker`));
         }
       });
