@@ -15,7 +15,6 @@ import store from './lib/store.js'
 protoType()
 serialize()
 
-const phoneUtil = PhoneNumberUtil.getInstance()
 global.prefix = new RegExp('^[!#./-]')
 global.opts = {}
 global.db = new Low(new JSONFile('database.json'))
