@@ -11,7 +11,6 @@ import { Low, JSONFile } from 'lowdb'
 import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } from '@whiskeysockets/baileys'
 import store from './lib/store.js'
-import { PhoneNumberUtil } from 'google-libphonenumber'
 
 protoType()
 serialize()
