@@ -1,5 +1,4 @@
 import './config.js'
-import './plugins/_allfake.js'
 import cfonts from 'cfonts'
 import { fileURLToPath, pathToFileURL } from 'url'
 import path, { join } from 'path'
