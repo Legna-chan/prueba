@@ -2,7 +2,7 @@ import './config.js'
 import cfonts from 'cfonts'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
-import fs, { readdirSync, existsSync, mkdirSync } from 'fs'
+import fs, { readdirSync } from 'fs'
 import readline from 'readline'
 import chalk from 'chalk'
 import pino from 'pino'
@@ -12,21 +12,23 @@ import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } from '@whiskeysockets/baileys'
 import store from './lib/store.js'
 
-// ==== Definir __filename y __dirname en ESM ====
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-// ==== Inicializaciones ====
 protoType()
 serialize()
 
-global.prefix = new RegExp('^[!#./-]')
-global.opts = {}
+// ==== ESM __dirname ====
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// ==== Base de datos ====
 global.db = new Low(new JSONFile('database.json'))
 await global.db.read()
 global.db.data ||= { users: {}, chats: {}, settings: {} }
 
-// ==== Elegir opción de conexión ====
+// ==== Configuración global ====
+global.prefix = new RegExp('^[!#./-]')
+global.opts = {}
+
+// ==== Leer opción de conexión ====
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
 const question = (txt) => new Promise(res => rl.question(txt, res))
 
@@ -38,12 +40,9 @@ if (!fs.existsSync('./sessions/creds.json')) {
             chalk.blueBright("1. Con código QR\n") +
             chalk.cyan("2. Con número de teléfono / código de 8 dígitos\n--> ")
         )
-        if (!/^[1-2]$/.test(opcion)) {
-            console.log(chalk.redBright("Por favor solo ingrese 1 o 2"))
-        }
+        if (!/^[1-2]$/.test(opcion)) console.log(chalk.redBright("Por favor solo ingrese 1 o 2"))
     } while (!/^[1-2]$/.test(opcion))
 }
-rl.close()
 
 // ==== Autenticación ====
 const { state, saveState, saveCreds } = await useMultiFileAuthState('./sessions')
@@ -71,6 +70,33 @@ const conn = makeWASocket({
 
 conn.ev.on('creds.update', saveCreds)
 
+// ==== Opción 2: Vincular por número ====
+import pkg from 'google-libphonenumber'
+const { PhoneNumberUtil } = pkg
+const phoneUtil = PhoneNumberUtil.getInstance()
+
+async function isValidPhoneNumber(number) {
+    try {
+        const parsed = phoneUtil.parseAndKeepRawInput(number)
+        return phoneUtil.isValidNumber(parsed)
+    } catch { return false }
+}
+
+if (opcion === '2') {
+    let phoneNumber
+    do {
+        phoneNumber = await question(chalk.cyan("Ingresa tu número de WhatsApp (ej: +521XXXXXXXXXX): "))
+        phoneNumber = phoneNumber.replace(/\D/g,'')
+        phoneNumber = `+${phoneNumber}`
+    } while (!await isValidPhoneNumber(phoneNumber))
+    rl.close()
+
+    const addNumber = phoneNumber.replace(/\D/g, '')
+    let pairingCode = await conn.requestPairingCode(addNumber) // Baileys modificado
+    pairingCode = pairingCode.match(/.{1,4}/g)?.join("-") || pairingCode
+    console.log(chalk.green(`Código de vinculación: ${pairingCode}`))
+}
+
 // ==== Cargar plugins ====
 global.plugins = {}
 const pluginFolder = join(__dirname, './plugins/index')
@@ -87,8 +113,7 @@ conn.handler = handler.handler.bind(conn)
 conn.ev.on('messages.upsert', conn.handler)
 
 // ==== Conexión ====
-conn.ev.on('connection.update', async (update) => {
-    const { connection, lastDisconnect, qr } = update
+conn.ev.on('connection.update', async ({ connection, qr }) => {
     if (qr && opcion === '1') console.log(chalk.blueBright('Escanea este código QR:'))
     if (connection === 'close') {
         console.log(chalk.yellow('→ Reconectando...'))
@@ -97,14 +122,6 @@ conn.ev.on('connection.update', async (update) => {
         console.log(chalk.green(`→ Conectado como: ${conn.user.name || conn.user.id}`))
     }
 })
-
-// ==== Validar número de teléfono ====
-async function isValidPhoneNumber(number) {
-    try {
-        const parsed = phoneUtil.parseAndKeepRawInput(number)
-        return phoneUtil.isValidNumber(parsed)
-    } catch { return false }
-}
 
 // ==== Recarga de handler ====
 global.reloadHandler = async (restartConn = false) => {
