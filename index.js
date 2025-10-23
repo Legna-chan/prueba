@@ -1,4 +1,4 @@
-import './settings.js'
+import './config.js'
 import './plugins/_allfake.js'
 import cfonts from 'cfonts'
 import { fileURLToPath, pathToFileURL } from 'url'
