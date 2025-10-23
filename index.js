@@ -1,6 +1,6 @@
 import './config.js'
 import cfonts from 'cfonts'
-import { fileURLToPath, pathToFileURL } from 'url'
+import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import fs, { readdirSync, existsSync, mkdirSync } from 'fs'
 import readline from 'readline'
@@ -12,6 +12,11 @@ import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } from '@whiskeysockets/baileys'
 import store from './lib/store.js'
 
+// ==== Definir __filename y __dirname en ESM ====
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+// ==== Inicializaciones ====
 protoType()
 serialize()
 
@@ -68,7 +73,7 @@ conn.ev.on('creds.update', saveCreds)
 
 // ==== Cargar plugins ====
 global.plugins = {}
-const pluginFolder = join(global.__dirname(import.meta.url), './plugins/index')
+const pluginFolder = join(__dirname, './plugins/index')
 for (const filename of readdirSync(pluginFolder).filter(f => f.endsWith('.js'))) {
     try {
         const module = await import(join(pluginFolder, filename))
