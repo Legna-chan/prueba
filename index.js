@@ -11,6 +11,7 @@ import { Low, JSONFile } from 'lowdb'
 import { makeWASocket, protoType, serialize } from './lib/simple.js'
 import { useMultiFileAuthState, fetchLatestBaileysVersion, makeCacheableSignalKeyStore, jidNormalizedUser } from '@whiskeysockets/baileys'
 import store from './lib/store.js'
+import pkg from 'google-libphonenumber'
 
 protoType()
 serialize()
@@ -71,7 +72,6 @@ const conn = makeWASocket({
 conn.ev.on('creds.update', saveCreds)
 
 // ==== Opción 2: Vincular por número ====
-import pkg from 'google-libphonenumber'
 const { PhoneNumberUtil } = pkg
 const phoneUtil = PhoneNumberUtil.getInstance()
 
@@ -91,10 +91,16 @@ if (opcion === '2') {
     } while (!await isValidPhoneNumber(phoneNumber))
     rl.close()
 
-    const addNumber = phoneNumber.replace(/\D/g, '')
-    let pairingCode = await conn.requestPairingCode(addNumber) // Baileys modificado
-    pairingCode = pairingCode.match(/.{1,4}/g)?.join("-") || pairingCode
-    console.log(chalk.green(`Código de vinculación: ${pairingCode}`))
+    // Escuchar evento de pairing
+    conn.ev.on('connection.update', update => {
+        const { qr, connection } = update
+        if (qr) {
+            console.log(chalk.green(`Código de vinculación para ${phoneNumber}: ${qr}`))
+        }
+        if (connection === 'open') {
+            console.log(chalk.blue(`Número ${phoneNumber} vinculado correctamente.`))
+        }
+    })
 }
 
 // ==== Cargar plugins ====
