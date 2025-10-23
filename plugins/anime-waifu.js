@@ -7,7 +7,7 @@ let res = await fetch('https://api.waifu.pics/sfw/waifu')
 if (!res.ok) return
 let json = await res.json()
 if (!json.url) return
-await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', '❀ Aquí tienes tu *Waifu* ฅ^•ﻌ•^ฅ.', fkontak)
+await conn.sendFile(m.chat, json.url, 'thumbnail.jpg', '❀ Aquí tienes tu *Waifu* ฅ^•ﻌ•^ฅ.', m)
 await m.react('✔️')
 } catch (error) {
 await m.react('✖️')
